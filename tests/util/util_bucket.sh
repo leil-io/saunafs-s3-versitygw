@@ -124,6 +124,9 @@ setup_bucket() {
 
   log 5 "util.setup_bucket: bucket name: $1"
   if [[ $RECREATE_BUCKETS == "true" ]]; then
+    aws configure set aws_access_key_id $AWS_ACCESS_KEY_ID --profile $AWS_PROFILE
+    aws configure set aws_secret_access_key $AWS_SECRET_ACCESS_KEY --profile $AWS_PROFILE
+    aws configure set aws_region $AWS_REGION --profile $AWS_PROFILE
     if ! create_bucket "s3api" "$1"; then
       log 2 "error creating bucket"
       return 1

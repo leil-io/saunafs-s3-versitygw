@@ -14,6 +14,8 @@
 # specific language governing permissions and limitations
 # under the License.
 
+HOME=/usr/local
+
 # Function to display help information
 show_help() {
     echo "Usage: $0 [option...]"
